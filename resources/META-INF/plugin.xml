@@ -1,0 +1,39 @@
+<idea-plugin>
+  <id>com.bluewaitor.tsReact</id>
+  <name>TSReact</name>
+  <version>1.0.1</version>
+  <vendor email="bluewaitor@gmail.com" url="https://github.com/bluewaitor">bluewaitor</vendor>
+
+  <description><![CDATA[
+      Typescript React Snippets for my own project.<br>
+    ]]></description>
+
+  <change-notes><![CDATA[
+      changed java version from 11 to 8.
+      add some snippets.<br>
+      <em>mapStateToProps</em>
+      <em>mapDispatchToProps</em>
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+  <depends>com.intellij.modules.lang</depends>
+  <depends>com.intellij.modules.platform</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+    <defaultLiveTemplatesProvider implementation="com.bluewaitor.snippets.TSReactTemplateProvider" />
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+  </actions>
+
+</idea-plugin>
