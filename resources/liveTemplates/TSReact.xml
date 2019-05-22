@@ -1,0 +1,12 @@
+<templateSet group="TSReact">
+  <template name="ms" value="const mapStateToProps = (state: RootState) =&gt; {&#10;  return {&#10;    $END$&#10;  };&#10;};" description="mapStateToProps" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="md" value="const mapDispatchToProps = {&#10;  $END$&#10;}" description="mapDispatchToProps" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+</templateSet>
