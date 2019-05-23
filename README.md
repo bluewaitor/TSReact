@@ -2,9 +2,9 @@
 
 Live Templates for Typescript React in IntelliJ products webstorm and idea.
 
-| Trigger | Content | 中文 |
-| ------- | ------- | ---- |
-| `cmd`   | const mapDispatchToProps = (state: State) => {} |  |
+| Trigger | Content |
+| ------- | ------- |
+| `cmd`   | const mapDispatchToProps = (state: State) => {} |
 | `cms`   | const mapStateToProps = {} |
 | `cp`    | const {  } = this.props | 
 | `cs`    | const {  } = this.state | 
