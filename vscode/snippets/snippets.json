@@ -79,7 +79,7 @@
     ]
   },
   "create model action": {
-    "prefix": "ma",
+    "prefix": "dma",
     "body": [
       "class ${TM_FILENAME_BASE} extends $1 {",
       "  action(): RM.MiddlewareEffect {",
@@ -91,7 +91,7 @@
     ]
   },
   "create model action reducer": {
-    "prefix": "mar",
+    "prefix": "dmar",
     "body": [
       "interface Response {}",
       "",
@@ -259,13 +259,12 @@
   "useState": {
     "prefix": "us",
     "body": [
-      "const $1 = useState($0);"
+      "const [$1, $2] = useState($0);"
     ]
   },
   "useDispatch": {
     "prefix": "ud",
     "body": [
-      "${TM_LINE_INDEX}import { useDispatch } from 'react-redux'",
       "const dispatch = useDispatch();"
     ]
   },
@@ -284,6 +283,63 @@
       "useEffect(() => {",
       "  $0",
       "}, []);",
+      ""
+    ]
+  },
+  "model action request": {
+    "prefix": "mar",
+    "body": [
+      "$1 = this.actionRequest({",
+      "  action: () => {",
+      "    return this.${2:get}({",
+      "      uri: '$0',",
+      "    });",
+      "  },",
+      "  onSuccess: (state, action) => {",
+      "    return action.response;",
+      "  },",
+      "});"
+    ]
+  },
+  "model action normal": {
+    "prefix": "man",
+    "body": [
+      "$1 = this.actionNormal({",
+      "  action: () => {",
+      "    return this.emit();",
+      "  },",
+      "  onSuccess: (state, action) => {",
+      "    return state;",
+      "  },",
+      "});"
+    ]
+  },
+  "model action thunk": {
+    "prefix": "mat",
+    "body": [
+      "$1 = this.actionThunk(() => {",
+      "  return (dispatch, getState) => {",
+      "    $0",
+      "  };",
+      "});"
+    ]
+  },
+  "create model": {
+    "prefix": "model",
+    "body": [
+      "import { Model } from 'redux-model-ts';",
+      "",
+      "type Data = {};",
+      "",
+      "class ${TM_FILENAME_BASE} extends Model<Data> {",
+      "  $0",
+      "",
+      "  protected initReducer(): Data {",
+      "    return {};",
+      "  }",
+      "}",
+      "",
+      "export const ${TM_FILENAME_BASE/^([_A-Z])/${1:/downcase}/} = new ${TM_FILENAME_BASE}();",
       ""
     ]
   }

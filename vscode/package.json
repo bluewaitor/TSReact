@@ -2,6 +2,12 @@
   "name": "tsreact",
   "displayName": "TSReact",
   "description": "typescript react snippets",
+  "publisher": "bluewaitor",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bluewaitor/TSReact.git"
+  },
+  "icon": "./icon.jpeg",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.36.0"
