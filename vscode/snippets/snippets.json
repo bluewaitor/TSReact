@@ -29,6 +29,48 @@
       "const { $0 } = this.state;"
     ]
   },
+  "extract variable": {
+    "prefix": "cv",
+    "body": [
+      "const { $0 } = $1;"
+    ]
+  },
+  "create model action": {
+    "prefix": "dma",
+    "body": [
+      "class ${TM_FILENAME_BASE} extends $1 {",
+      "  action(): RM.MiddlewareEffect {",
+      "    return this.post('$0');",
+      "  }",
+      "}",
+      "",
+      "export const ${TM_FILENAME_BASE/^([_A-Z])/${1:/downcase}/} = new ${TM_FILENAME_BASE}();"
+    ]
+  },
+  "create model action reducer": {
+    "prefix": "dmar",
+    "body": [
+      "interface Response {}",
+      "",
+      "type Data = Response;",
+      "",
+      "class ${TM_FILENAME_BASE} extends $1<Data, Response> {",
+      "  action(): RM.MiddlewareEffect<Response> {",
+      "    return this.get('$0');",
+      "  }",
+      "",
+      "  protected getInitValue(): Data {",
+      "    return {};",
+      "  }",
+      "",
+      "  protected onSuccess(_: Data, action: RM.ResponseAction<Response>): Data {",
+      "    return action.response;",
+      "  }",
+      "}",
+      "",
+      "export const ${TM_FILENAME_BASE/^([_A-Z])/${1:/downcase}/} = new ${TM_FILENAME_BASE}();"
+    ]
+  },
   "create function component": {
     "prefix": "fc",
     "body": [
@@ -72,46 +114,67 @@
       ""
     ]
   },
-  "import css": {
+  "import scss": {
     "prefix": "icss",
     "body": [
       "import styles from './${TM_FILENAME_BASE}.scss';"
     ]
   },
-  "create model action": {
-    "prefix": "dma",
+  "model action normal": {
+    "prefix": "man",
     "body": [
-      "class ${TM_FILENAME_BASE} extends $1 {",
-      "  action(): RM.MiddlewareEffect {",
-      "    return this.post('$0');",
-      "  }",
-      "}",
-      "",
-      "export const ${TM_FILENAME_BASE/^([_A-Z])/${1:/downcase}/} = new ${TM_FILENAME_BASE}();"
+      "$1 = this.actionNormal({",
+      "  action: () => {",
+      "    return this.emit();",
+      "  },",
+      "  onSuccess: (state, action) => {",
+      "    return state;",
+      "  },",
+      "});"
     ]
   },
-  "create model action reducer": {
-    "prefix": "dmar",
+  "model action request": {
+    "prefix": "mar",
     "body": [
-      "interface Response {}",
-      "",
-      "type Data = Response;",
-      "",
-      "class ${TM_FILENAME_BASE} extends $1<Data, Response> {",
-      "  action(): RM.MiddlewareEffect<Response> {",
-      "    return this.get('$0');",
-      "  }",
-      "",
-      "  protected getInitValue(): Data {",
-      "    return {};",
-      "  }",
-      "",
-      "  protected onSuccess(_: Data, action: RM.ResponseAction<Response>): Data {",
+      "$1 = this.actionRequest({",
+      "  action: () => {",
+      "    return this.${2:get}({",
+      "      uri: '$0',",
+      "    });",
+      "  },",
+      "  onSuccess: (state, action) => {",
       "    return action.response;",
+      "  },",
+      "});"
+    ]
+  },
+  "model action thunk": {
+    "prefix": "mat",
+    "body": [
+      "$1 = this.actionThunk(() => {",
+      "  return (dispatch, getState) => {",
+      "    $0",
+      "  };",
+      "});"
+    ]
+  },
+  "create model": {
+    "prefix": "model",
+    "body": [
+      "import { Model } from 'redux-model-ts';",
+      "",
+      "type Data = {};",
+      "",
+      "class ${TM_FILENAME_BASE} extends Model<Data> {",
+      "  $0",
+      "",
+      "  protected initReducer(): Data {",
+      "    return {};",
       "  }",
       "}",
       "",
-      "export const ${TM_FILENAME_BASE/^([_A-Z])/${1:/downcase}/} = new ${TM_FILENAME_BASE}();"
+      "export const ${TM_FILENAME_BASE/^([_A-Z])/${1:/downcase}/} = new ${TM_FILENAME_BASE}();",
+      ""
     ]
   },
   "react pure component": {
@@ -256,18 +319,6 @@
       "}>;"
     ]
   },
-  "useState": {
-    "prefix": "us",
-    "body": [
-      "const [$1, $2] = useState($0);"
-    ]
-  },
-  "useDispatch": {
-    "prefix": "ud",
-    "body": [
-      "const dispatch = useDispatch();"
-    ]
-  },
   "useCallback": {
     "prefix": "uc",
     "body": [
@@ -275,6 +326,18 @@
       "  $0",
       "}, []);",
       ""
+    ]
+  },
+  "useContext": {
+    "prefix": "uctx",
+    "body": [
+      "const { $0 } = useContext($1);"
+    ]
+  },
+  "useDispatch": {
+    "prefix": "ud",
+    "body": [
+      "const dispatch = useDispatch();"
     ]
   },
   "useEffect": {
@@ -286,61 +349,10 @@
       ""
     ]
   },
-  "model action request": {
-    "prefix": "mar",
+  "useState": {
+    "prefix": "us",
     "body": [
-      "$1 = this.actionRequest({",
-      "  action: () => {",
-      "    return this.${2:get}({",
-      "      uri: '$0',",
-      "    });",
-      "  },",
-      "  onSuccess: (state, action) => {",
-      "    return action.response;",
-      "  },",
-      "});"
-    ]
-  },
-  "model action normal": {
-    "prefix": "man",
-    "body": [
-      "$1 = this.actionNormal({",
-      "  action: () => {",
-      "    return this.emit();",
-      "  },",
-      "  onSuccess: (state, action) => {",
-      "    return state;",
-      "  },",
-      "});"
-    ]
-  },
-  "model action thunk": {
-    "prefix": "mat",
-    "body": [
-      "$1 = this.actionThunk(() => {",
-      "  return (dispatch, getState) => {",
-      "    $0",
-      "  };",
-      "});"
-    ]
-  },
-  "create model": {
-    "prefix": "model",
-    "body": [
-      "import { Model } from 'redux-model-ts';",
-      "",
-      "type Data = {};",
-      "",
-      "class ${TM_FILENAME_BASE} extends Model<Data> {",
-      "  $0",
-      "",
-      "  protected initReducer(): Data {",
-      "    return {};",
-      "  }",
-      "}",
-      "",
-      "export const ${TM_FILENAME_BASE/^([_A-Z])/${1:/downcase}/} = new ${TM_FILENAME_BASE}();",
-      ""
+      "const [$1, $2] = useState($0);"
     ]
   }
 }

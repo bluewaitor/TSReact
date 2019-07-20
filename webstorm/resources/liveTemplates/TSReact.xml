@@ -1,76 +1,25 @@
 <templateSet group="TSReact">
-  <template name="cms" value="const mapStateToProps = (state: RootState) =&gt; {&#10;  return {&#10;    $END$&#10;  };&#10;};" description="mapStateToProps" toReformat="false" toShortenFQNames="true">
-    <context>
-      <option name="TypeScript" value="true" />
-    </context>
-  </template>
-  <template name="cmd" value="const mapDispatchToProps = {&#10;  $END$&#10;};" description="mapDispatchToProps" toReformat="false" toShortenFQNames="true">
-    <context>
-      <option name="TypeScript" value="true" />
-    </context>
-  </template>
-  <template name="rcc" value="import React, { PureComponent } from 'react';&#10;&#10;interface OwnProps {}&#10;&#10;type Props = OwnProps;&#10;&#10;class $FILE_NAME$ extends PureComponent&lt;Props&gt; {&#10;  render() {&#10;    return (&#10;      &lt;div&gt;&#10;        $END$&#10;      &lt;/div&gt;&#10;    );&#10;  }&#10;}&#10;&#10;export default $FILE_NAME$;&#10;" description="react component" toReformat="false" toShortenFQNames="true">
+  <template name="rcc" value="import React, { PureComponent } from 'react';&#10;&#10;interface OwnProps {}&#10;&#10;type Props = OwnProps;&#10;&#10;class $FILE_NAME$ extends PureComponent&lt;Props&gt; {&#10;  render() {&#10;    return (&#10;      $END$&#10;    );&#10;  }&#10;}&#10;&#10;export default $FILE_NAME$;&#10;" description="react pure component" toReformat="false" toShortenFQNames="true">
     <variable name="FILE_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="false" />
-    <context>
-      <option name="TypeScript" value="true" />
-    </context>
+    <context />
   </template>
-  <template name="rccs" value="import React, { PureComponent } from 'react';&#10;&#10;interface OwnProps {}&#10;&#10;type Props = OwnProps;&#10;&#10;type State = Readonly&lt;{&#10;  $STATE$&#10;}&gt;;&#10;&#10;class $FILE_NAME$ extends PureComponent&lt;Props, State&gt; {&#10;  readonly state: State = {&#10;    $STATE$&#10;  };&#10;  &#10;  render() {&#10;    return (&#10;      &lt;div&gt;&#10;        $FILE_NAME$&#10;      &lt;/div&gt;&#10;    );&#10;  }&#10;}&#10;&#10;export default $FILE_NAME$;&#10;" description="react component with state" toReformat="false" toShortenFQNames="true">
+  <template name="rccs" value="import React, { PureComponent } from 'react';&#10;&#10;interface OwnProps {}&#10;&#10;type Props = OwnProps;&#10;&#10;type State = Readonly&lt;{&#10;  $STATE$&#10;}&gt;;&#10;&#10;class $FILE_NAME$ extends PureComponent&lt;Props, State&gt; {&#10;  readonly state: State = {&#10;    $END$&#10;  };&#10;  &#10;  render() {&#10;    return (&#10;      $END$&#10;    );&#10;  }&#10;}&#10;&#10;export default $FILE_NAME$;&#10;" description="react pure component with state" toReformat="false" toShortenFQNames="true">
     <variable name="STATE" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="FILE_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="false" />
-    <context>
-      <option name="TypeScript" value="true" />
-    </context>
+    <context />
   </template>
-  <template name="cs" value="const { $END$ } = this.state;" description="state" toReformat="false" toShortenFQNames="true">
-    <context>
-      <option name="TypeScript" value="true" />
-    </context>
-  </template>
-  <template name="cp" value="const { $END$ } = this.props;" description="props" toReformat="false" toShortenFQNames="true">
-    <context>
-      <option name="TypeScript" value="true" />
-    </context>
-  </template>
-  <template name="toms" value="ReturnType&lt;typeof mapStateToProps&gt;" description="ReturnType&lt;typeof mapStateToProps&gt;" toReformat="false" toShortenFQNames="true">
-    <context>
-      <option name="TypeScript" value="true" />
-    </context>
-  </template>
-  <template name="tomd" value="typeof mapDispatchToProps" description="typeof mapDispatchToProps" toReformat="false" toShortenFQNames="true">
-    <context>
-      <option name="TypeScript" value="true" />
-    </context>
-  </template>
-  <template name="ss" value="this.setState({&#10;  $END$&#10;});" description="this.setState()" toReformat="false" toShortenFQNames="true">
-    <context>
-      <option name="TypeScript" value="true" />
-    </context>
-  </template>
-  <template name="icss" value="import styles from './$FILE_NAME$.scss';" description="import styles" toReformat="false" toShortenFQNames="true">
+  <template name="rrc" value="import React, { PureComponent } from 'react';&#10;import { connect } from 'react-redux';&#10;&#10;interface OwnProps {}&#10;&#10;type Props = OwnProps &amp; ReturnType&lt;typeof mapStateToProps&gt; &amp; typeof mapDispatchToProps;&#10;&#10;class $FILE_NAME$ extends PureComponent&lt;Props&gt; {&#10;  render() {&#10;    return (&#10;      $END$&#10;    );&#10;  }&#10;}&#10;&#10;const mapStateToProps = (state: RootState) =&gt; {&#10;  return {};&#10;};&#10;&#10;const mapDispatchToProps = {};&#10;&#10;export default connect(mapStateToProps, mapDispatchToProps)($FILE_NAME$);&#10;" description="react pure component with react-redux" toReformat="false" toShortenFQNames="true">
     <variable name="FILE_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="false" />
-    <context>
-      <option name="TypeScript" value="true" />
-    </context>
+    <context />
   </template>
-  <template name="rrc" value="import React, { PureComponent } from 'react';&#10;import { connect } from 'react-redux';&#10;&#10;interface OwnProps {}&#10;&#10;type Props = OwnProps &amp; ReturnType&lt;typeof mapStateToProps&gt; &amp; typeof mapDispatchToProps;&#10;&#10;class $FILE_NAME$ extends PureComponent&lt;Props&gt; {&#10;  render() {&#10;    return (&#10;      &lt;div&gt;&#10;        $END$&#10;      &lt;/div&gt;&#10;    );&#10;  }&#10;}&#10;&#10;const mapStateToProps = (state: RootState) =&gt; {&#10;  return {&#10;&#10;  };&#10;};&#10;&#10;const mapDispatchToProps = {&#10;&#10;};&#10;&#10;export default connect(mapStateToProps, mapDispatchToProps)($FILE_NAME$);&#10;" description="react component with react-redux" toReformat="false" toShortenFQNames="true">
+  <template name="rrcs" value="import React, { PureComponent } from 'react';&#10;import { connect } from 'react-redux';&#10;&#10;interface OwnProps {}&#10;&#10;type Props = OwnProps &amp; ReturnType&lt;typeof mapStateToProps&gt; &amp; typeof mapDispatchToProps;&#10;&#10;type State = Readonly&lt;{}&gt;;&#10;&#10;class $FILE_NAME$ extends PureComponent&lt;Props, State&gt; {&#10;  readonly state: State = {};&#10;&#10;  render() {&#10;    return (&#10;      $END$&#10;    );&#10;  }&#10;}&#10;&#10;const mapStateToProps = (state: RootState) =&gt; {&#10;  return {};&#10;};&#10;&#10;const mapDispatchToProps = {};&#10;&#10;export default connect(mapStateToProps, mapDispatchToProps)($FILE_NAME$);&#10;" description="react pure component with react-redux and state" toReformat="false" toShortenFQNames="true">
     <variable name="FILE_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="false" />
-    <context>
-      <option name="TypeScript" value="true" />
-    </context>
+    <context />
   </template>
-  <template name="rrcs" value="import React, { PureComponent } from 'react';&#10;import { connect } from 'react-redux';&#10;&#10;interface OwnProps {}&#10;&#10;type Props = OwnProps &amp; ReturnType&lt;typeof mapStateToProps&gt; &amp; typeof mapDispatchToProps;&#10;&#10;type State = Readonly&lt;{}&gt;;&#10;&#10;class $FILE_NAME$ extends PureComponent&lt;Props, State&gt; {&#10;  readonly state: State = {};&#10;&#10;  render() {&#10;    return (&#10;      &lt;div&gt;&#10;        $END$&#10;      &lt;/div&gt;&#10;    );&#10;  }&#10;}&#10;&#10;const mapStateToProps = (state: RootState) =&gt; {&#10;  return {&#10;&#10;  };&#10;};&#10;&#10;const mapDispatchToProps = {&#10;&#10;};&#10;&#10;export default connect(mapStateToProps, mapDispatchToProps)($FILE_NAME$);&#10;" description="react component with react-redux and state" toReformat="false" toShortenFQNames="true">
-    <variable name="FILE_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="false" />
-    <context>
-      <option name="TypeScript" value="true" />
-    </context>
+  <template name="tps" value="type State = Readonly&lt;{&#10;  $END$&#10;}&gt;;&#10;" description="type State" toReformat="false" toShortenFQNames="true">
+    <context />
   </template>
-  <template name="tps" value="type State = Readonly&lt;{$END$}&gt;;&#10;" description="type State" toReformat="false" toShortenFQNames="true">
-    <context>
-      <option name="TypeScript" value="true" />
-    </context>
-  </template>
-  <template name="mar" value="interface Response {}&#10;&#10;type Data = Response;&#10;&#10;class $FILE_NAME$ extends $MODEL_NAME$&lt;Data, Response&gt; {&#10;  action(): RM.MiddlewareEffect&lt;Response&gt; {&#10;    return this.get('');&#10;  }&#10;&#10;  protected getInitValue(): Data {&#10;    return {};&#10;  }&#10;&#10;  protected onSuccess(_: Data, action: RM.ResponseAction&lt;Response&gt;): Data {&#10;    return action.response;&#10;  }&#10;}&#10;&#10;export const $_FILE_NAME$ = new $FILE_NAME$();" description="model action reducer" toReformat="false" toShortenFQNames="true">
+  <template name="dmar" value="interface Response {}&#10;&#10;type Data = Response;&#10;&#10;class $FILE_NAME$ extends $MODEL_NAME$&lt;Data, Response&gt; {&#10;  action(): RM.MiddlewareEffect&lt;Response&gt; {&#10;    return this.get('$END$');&#10;  }&#10;&#10;  protected getInitValue(): Data {&#10;    return {};&#10;  }&#10;&#10;  protected onSuccess(_: Data, action: RM.ResponseAction&lt;Response&gt;): Data {&#10;    return action.response;&#10;  }&#10;}&#10;&#10;export const $_FILE_NAME$ = new $FILE_NAME$();" description="create model action reducer" toReformat="false" toShortenFQNames="true">
     <variable name="FILE_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="false" />
     <variable name="MODEL_NAME" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="_FILE_NAME" expression="camelCase(fileNameWithoutExtension())" defaultValue="" alwaysStopAt="false" />
@@ -78,7 +27,7 @@
       <option name="TypeScript" value="true" />
     </context>
   </template>
-  <template name="ma" value="&#10;class $FILE_NAME$ extends $MODEL_NAME$ {&#10;  action(): RM.MiddlewareEffect {&#10;    return this.post('');&#10;  }&#10;}&#10;&#10;export const $_FILE_NAME$ = new $FILE_NAME$();" description="model action" toReformat="false" toShortenFQNames="true">
+  <template name="dma" value="&#10;class $FILE_NAME$ extends $MODEL_NAME$ {&#10;  action(): RM.MiddlewareEffect {&#10;    return this.post('$END$');&#10;  }&#10;}&#10;&#10;export const $_FILE_NAME$ = new $FILE_NAME$();" description="create model action" toReformat="false" toShortenFQNames="true">
     <variable name="FILE_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="false" />
     <variable name="MODEL_NAME" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="_FILE_NAME" expression="camelCase(fileNameWithoutExtension())" defaultValue="" alwaysStopAt="false" />
@@ -86,14 +35,89 @@
       <option name="TypeScript" value="true" />
     </context>
   </template>
-  <template name="fc" value="import React, { FunctionComponent } from 'react';&#10;&#10;interface OwnProps {}&#10;&#10;type Props = OwnProps;&#10;&#10;const $FILE_NAME$: FunctionComponent&lt;Props&gt; = (props) =&gt; {&#10;  return &lt;div&gt;$END$&lt;/div&gt;;&#10;};&#10;&#10;export default $FILE_NAME$;&#10;" description="function component" toReformat="false" toShortenFQNames="true">
+  <template name="fc" value="import React, { FunctionComponent } from 'react';&#10;&#10;interface OwnProps {}&#10;&#10;type Props = OwnProps;&#10;&#10;const $FILE_NAME$: FunctionComponent&lt;Props&gt; = (props) =&gt; {&#10;  $END$&#10;  return ();&#10;};&#10;&#10;export default $FILE_NAME$;&#10;" description="create function component" toReformat="false" toShortenFQNames="true">
     <variable name="FILE_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="false" />
+    <context />
+  </template>
+  <template name="frc" value="import React, { FunctionComponent } from 'react';&#10;import { connect } from 'react-redux';&#10;&#10;interface OwnProps {}&#10;&#10;type Props = OwnProps &amp; ReturnType&lt;typeof mapStateToProps&gt;;&#10;&#10;const $FILE_NAME$: FunctionComponent&lt;Props&gt; = (props) =&gt; {&#10;  $END$&#10;  return ():&#10;};&#10;&#10;const mapStateToProps = (state: RootState) =&gt; {&#10;  return {&#10;    $END$&#10;  };&#10;};&#10;&#10;export default connect(mapStateToProps)($FILE_NAME$);&#10;" description="create function component with react-redux" toReformat="false" toShortenFQNames="true">
+    <variable name="FILE_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="false" />
+    <context />
+  </template>
+  <template name="ssf" value="this.setState((prevState) =&gt; {&#10;  return { $END };&#10;});" description="setState function" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="TypeScript" value="true" />
     </context>
   </template>
-  <template name="frc" value="import React, { FunctionComponent } from 'react';&#10;import { connect } from 'react-redux';&#10;&#10;interface OwnProps {}&#10;&#10;type Props = OwnProps &amp; ReturnType&lt;typeof mapStateToProps&gt;;&#10;&#10;const $FILE_NAME$: FunctionComponent&lt;Props&gt; = (props) =&gt; {&#10;  return &lt;div&gt;$END$&lt;/div&gt;;&#10;};&#10;&#10;const mapStateToProps = (state: RootState) =&gt; {&#10;  return {&#10;    $END$&#10;  };&#10;};&#10;&#10;export default connect(mapStateToProps)($FILE_NAME$);&#10;" description="function component with react-redux" toReformat="false" toShortenFQNames="true">
+  <template name="us" value="const [$END2$, $END$] = useState($END1$);" description="useState" toReformat="false" toShortenFQNames="true">
+    <variable name="END2" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="END1" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="ud" value="const dispatch = useDispatch();" description="useDispatch" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="uc" value="const $END1$ = useCallback(() =&gt; {&#10;  $END$&#10;}, []);" description="useCallback" toReformat="false" toShortenFQNames="true">
+    <variable name="END1" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="ue" value="useEffect(() =&gt; {&#10;  $END$&#10;}, []);" description="useEffect" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="mar" value="$VAR$ = this.actionRequest({&#10;  action: () =&gt; {&#10;    return this.get({&#10;      uri: '$END$',&#10;    });&#10;  },&#10;  onSuccess: (state, action) =&gt; {&#10;    return action.response;&#10;  },&#10;});" description="model action request" toReformat="false" toShortenFQNames="true">
+    <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="man" value="$VAR$ = this.actionNormal({&#10;  action: () =&gt; {&#10;    return this.emit();&#10;  },&#10;  onSuccess: (state, action) =&gt; {&#10;    return state;&#10;  },&#10;});" description="model action normal" toReformat="false" toShortenFQNames="true">
+    <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="mat" value="$VAR$ = this.actionThunk({&#10;  return (dispatch, getState) =&gt; {&#10;    $END$;&#10;  };&#10;});" description="model action thunk" toReformat="false" toShortenFQNames="true">
+    <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="model" value="import { Model } from 'redux-model-ts';&#10;&#10;type Data = {};&#10;&#10;class $FILE_NAME$ extends Model&lt;Data&gt; {&#10;  $END$&#10;&#10;  protected initReducer(): Data {&#10;    return {};&#10;  }&#10;}&#10;&#10;export const $_FILE_NAME$ = new $FILE_NAME$();" description="create model" toReformat="false" toShortenFQNames="true">
     <variable name="FILE_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="false" />
+    <variable name="_FILE_NAME" expression="camelCase(fileNameWithoutExtension())" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="cv" value="const { $END$ } = $END1$;" description="const value" toReformat="false" toShortenFQNames="true">
+    <variable name="END1" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="cs" value="const { $END$ } = this.state;" description="extract state" toReformat="false" toShortenFQNames="true">
+    <context />
+  </template>
+  <template name="cp" value="const { $END$ } = this.props;" description="extract props" toReformat="false" toShortenFQNames="true">
+    <context />
+  </template>
+  <template name="toms" value="ReturnType&lt;typeof mapStateToProps&gt;" description="typeof mapStateToProps" toReformat="false" toShortenFQNames="true">
+    <context />
+  </template>
+  <template name="ss" value="this.setState({&#10;  $END$&#10;});" description="setState" toReformat="false" toShortenFQNames="true">
+    <context />
+  </template>
+  <template name="icss" value="import styles from './$FILE_NAME$.scss';" description="import scss" toReformat="false" toShortenFQNames="true">
+    <variable name="FILE_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="false" />
+    <context />
+  </template>
+  <template name="uctx" value="const { $END$ } = useContext($END1$);" description="useContext" toReformat="false" toShortenFQNames="true">
+    <variable name="END1" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="TypeScript" value="true" />
     </context>
