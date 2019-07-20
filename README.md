@@ -9,8 +9,8 @@ Typescript React Snippets.
 | `cp`    | const {  } = this.props |
 | `cs`    | const {  } = this.state |
 | `cv`    | const {  } = ; |
-| `dma`    | deprecated model action |
-| `dmar`   | deprecated model action reducer |
+| `dma`   | deprecated model action |
+| `dmar`  | deprecated model action reducer |
 | `fc`    | function component |
 | `frc`   | function component with react-redux |
 | `icss`  | import styles from './*.scss' |

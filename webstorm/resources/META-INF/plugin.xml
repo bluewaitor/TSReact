@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>com.bluewaitor.tsReact</id>
   <name>TSReact</name>
-  <version>1.0.2</version>
+  <version>1.1.0</version>
   <vendor email="bluewaitor@gmail.com" url="https://github.com/bluewaitor">bluewaitor</vendor>
 
   <description><![CDATA[
@@ -9,7 +9,15 @@
     ]]></description>
 
   <change-notes><![CDATA[
-      add more snippets. like `rcc`, `rccs`, `rrc`, `rrcs` and so on.
+      React hooks support.
+      add 'uc' for useCallback.
+      add 'uctx' for useContext.
+      add 'ud' for useDispatch.
+      add 'ue' for useEffect.
+      add 'us' for useState.
+      add 'ssf' for setState with function.
+      add 'cv' for extract variable.
+      and so on...
     ]]>
   </change-notes>
 
