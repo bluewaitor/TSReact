@@ -48,9 +48,9 @@
       <option name="TypeScript" value="true" />
     </context>
   </template>
-  <template name="us" value="const [$END2$, $END$] = useState($END1$);" description="useState" toReformat="false" toShortenFQNames="true">
-    <variable name="END2" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="END1" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="us" value="const [$state$, set$setState$] = useState($END$);" description="useState" toReformat="false" toShortenFQNames="true">
+    <variable name="state" expression="" defaultValue="State" alwaysStopAt="true" />
+    <variable name="setState" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="TypeScript" value="true" />
     </context>
@@ -60,7 +60,7 @@
       <option name="TypeScript" value="true" />
     </context>
   </template>
-  <template name="uc" value="const $END1$ = useCallback(() =&gt; {&#10;  $END$&#10;}, []);" description="useCallback" toReformat="false" toShortenFQNames="true">
+  <template name="ucb" value="const $END1$ = useCallback(() =&gt; {&#10;  $END$&#10;}, []);" description="useCallback" toReformat="false" toShortenFQNames="true">
     <variable name="END1" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="TypeScript" value="true" />
@@ -87,7 +87,7 @@
       <option name="TypeScript" value="true" />
     </context>
   </template>
-  <template name="model" value="import { Model } from 'redux-model-ts';&#10;&#10;type Data = {};&#10;&#10;class $FILE_NAME$ extends Model&lt;Data&gt; {&#10;  $END$&#10;&#10;  protected initReducer(): Data {&#10;    return {};&#10;  }&#10;}&#10;&#10;export const $_FILE_NAME$ = new $FILE_NAME$();" description="create model" toReformat="false" toShortenFQNames="true">
+  <template name="model" value="import { Model } from '@redux-model/web';&#10;&#10;type Data = {};&#10;&#10;class $FILE_NAME$ extends Model&lt;Data&gt; {&#10;  $END$&#10;&#10;  protected initReducer(): Data {&#10;    return {};&#10;  }&#10;}&#10;&#10;export const $_FILE_NAME$ = new $FILE_NAME$();" description="create model" toReformat="false" toShortenFQNames="true">
     <variable name="FILE_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="false" />
     <variable name="_FILE_NAME" expression="camelCase(fileNameWithoutExtension())" defaultValue="" alwaysStopAt="false" />
     <context>
@@ -118,6 +118,21 @@
   </template>
   <template name="uctx" value="const { $END$ } = useContext($END1$);" description="useContext" toReformat="false" toShortenFQNames="true">
     <variable name="END1" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="ur" value="const $ref$ = useRef&lt;$T$&gt;($initialValue$);$END$" description="useRef" toReformat="false" toShortenFQNames="true">
+    <variable name="ref" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="T" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="initialValue" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="TypeScript" value="true" />
+    </context>
+  </template>
+  <template name="taromodel" value="import { Model } from '@redux-model/taro';&#10;&#10;type Data = {};&#10;&#10;class $FILE_NAME$ extends Model&lt;Data&gt; {&#10;  $END$&#10;&#10;  protected initReducer(): Data {&#10;    return {};&#10;  }&#10;}&#10;&#10;export const $_FILE_NAME$ = new $FILE_NAME$();" description="create taro model" toReformat="false" toShortenFQNames="true">
+    <variable name="FILE_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="false" />
+    <variable name="_FILE_NAME" expression="camelCase(fileNameWithoutExtension())" defaultValue="" alwaysStopAt="false" />
     <context>
       <option name="TypeScript" value="true" />
     </context>

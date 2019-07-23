@@ -161,7 +161,7 @@
   "create model": {
     "prefix": "model",
     "body": [
-      "import { Model } from 'redux-model-ts';",
+      "import { Model } from '@redux-model/web';",
       "",
       "type Data = {};",
       "",
@@ -299,6 +299,25 @@
       "});"
     ]
   },
+  "create taro model": {
+    "prefix": "taromodel",
+    "body": [
+      "import { Model } from '@redux-model/taro';",
+      "",
+      "type Data = {};",
+      "",
+      "class ${TM_FILENAME_BASE} extends Model<Data> {",
+      "  $0",
+      "",
+      "  protected initReducer(): Data {",
+      "    return {};",
+      "  }",
+      "}",
+      "",
+      "export const ${TM_FILENAME_BASE/^([_A-Z])/${1:/downcase}/} = new ${TM_FILENAME_BASE}();",
+      ""
+    ]
+  },
   "typeof mapDispatchToProps": {
     "prefix": "tomd",
     "body": [
@@ -320,7 +339,7 @@
     ]
   },
   "useCallback": {
-    "prefix": "uc",
+    "prefix": "ucb",
     "body": [
       "const $1 = useCallback(() => {",
       "  $0",
@@ -347,6 +366,12 @@
       "  $0",
       "}, []);",
       ""
+    ]
+  },
+  "useRef": {
+    "prefix": "ur",
+    "body": [
+      "const $1 = useRef<$2>($0);"
     ]
   },
   "useState": {

@@ -2,6 +2,13 @@
 
 更改记录
 
+## [1.2.0]
+
+- 修改 `uc` 改为 `ucb`
+- 修改 `model` 引入的包改为 `@redux-model/web`
+- 新增 `taromodel`
+- 新增 `ur` useRef
+
 ## [1.1.0]
 
 - 新增 `cv` extract variable

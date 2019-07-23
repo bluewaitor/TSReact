@@ -18,6 +18,7 @@ Typescript React Snippets.
 | `mar`   | model action request |
 | `mat`   | model action thunk |
 | `model` | model |
+| `taromodel` | taro model |
 | `rcc`   | class component skeleton |
 | `rccs`  | class component with state skeleton |
 | `rrc`   | class component with react-redux and state skeleton |
@@ -27,8 +28,9 @@ Typescript React Snippets.
 | `tomd`  | typeof mapDispatchToProps |
 | `toms`  | typeof mapStateToProps |
 | `tps`   | type State = Readonly<{ }> |
-| `uc`    | useCallback |
+| `ucb`    | useCallback |
 | `uctx`  | useContext |
 | `ud`    | useDispatch |
 | `ue`    | useEffect |
+| `ur`    | useRef |
 | `us`    | useState |

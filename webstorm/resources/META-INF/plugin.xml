@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>com.bluewaitor.tsReact</id>
   <name>TSReact</name>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
   <vendor email="bluewaitor@gmail.com" url="https://github.com/bluewaitor">bluewaitor</vendor>
 
   <description><![CDATA[
@@ -9,15 +9,10 @@
     ]]></description>
 
   <change-notes><![CDATA[
-      React hooks support.
-      add 'uc' for useCallback.
-      add 'uctx' for useContext.
-      add 'ud' for useDispatch.
-      add 'ue' for useEffect.
-      add 'us' for useState.
-      add 'ssf' for setState with function.
-      add 'cv' for extract variable.
-      and so on...
+      - 修改 `uc` 改为 `ucb`
+      - 修改 `model` 引入的包改为 `@redux-model/web`
+      - 新增 `taromodel`
+      - 新增 `ur` useRef
     ]]>
   </change-notes>
 
