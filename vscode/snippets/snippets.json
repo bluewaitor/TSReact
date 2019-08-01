@@ -225,6 +225,25 @@
       "export default ${TM_FILENAME_BASE};"
     ]
   },
+  "create react native model": {
+    "prefix": "rnmodel",
+    "body": [
+      "import { Model } from '@redux-model/react-native';",
+      "",
+      "type Data = {};",
+      "",
+      "class ${TM_FILENAME_BASE} extends Model<Data> {",
+      "  $0",
+      "",
+      "  protected initReducer(): Data {",
+      "    return {};",
+      "  }",
+      "}",
+      "",
+      "export const ${TM_FILENAME_BASE/^([_A-Z])/${1:/downcase}/} = new ${TM_FILENAME_BASE}();",
+      ""
+    ]
+  },
   "react pure component with react-redux": {
     "prefix": "rrc",
     "body": [
@@ -366,6 +385,12 @@
       "  $0",
       "}, []);",
       ""
+    ]
+  },
+  "useForm": {
+    "prefix": "uf",
+    "body": [
+      "const [form] = Form.useForm();"
     ]
   },
   "useRef": {

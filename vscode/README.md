@@ -19,6 +19,7 @@ Typescript React Snippets.
 | `mat`   | model action thunk |
 | `model` | model |
 | `taromodel` | taro model |
+| `rnmodel` | react native model |
 | `rcc`   | class component skeleton |
 | `rccs`  | class component with state skeleton |
 | `rrc`   | class component with react-redux and state skeleton |
@@ -32,5 +33,6 @@ Typescript React Snippets.
 | `uctx`  | useContext |
 | `ud`    | useDispatch |
 | `ue`    | useEffect |
+| `uf`    | useForm |
 | `ur`    | useRef |
 | `us`    | useState |

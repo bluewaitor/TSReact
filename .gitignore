@@ -26,3 +26,5 @@ hs_err_pid*
 *.iml
 *.vsix
 out
+
+.DS_Store

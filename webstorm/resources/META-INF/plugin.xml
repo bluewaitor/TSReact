@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>com.bluewaitor.tsReact</id>
   <name>TSReact</name>
-  <version>1.2.0</version>
+  <version>1.3.0</version>
   <vendor email="bluewaitor@gmail.com" url="https://github.com/bluewaitor">bluewaitor</vendor>
 
   <description><![CDATA[
@@ -9,10 +9,9 @@
     ]]></description>
 
   <change-notes><![CDATA[
-      - 修改 `uc` 改为 `ucb`
-      - 修改 `model` 引入的包改为 `@redux-model/web`
-      - 新增 `taromodel`
-      - 新增 `ur` useRef
+      - fix: set applicable context to Typescript.
+      - add: `rnmodel`
+      - add: `uf` antd 4.0 useForm.
     ]]>
   </change-notes>
 
