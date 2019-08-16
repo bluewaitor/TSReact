@@ -123,13 +123,8 @@
   "model action normal": {
     "prefix": "man",
     "body": [
-      "$1 = this.actionNormal({",
-      "  action: () => {",
-      "    return this.emit();",
-      "  },",
-      "  onSuccess: (state, action) => {",
-      "    return state;",
-      "  },",
+      "$1 = this.actionNormal((state, payload) => {",
+      "  ${0:return state;}",
       "});"
     ]
   },
@@ -152,9 +147,7 @@
     "prefix": "mat",
     "body": [
       "$1 = this.actionThunk(() => {",
-      "  return (dispatch, getState) => {",
-      "    $0",
-      "  };",
+      "  $0",
       "});"
     ]
   },

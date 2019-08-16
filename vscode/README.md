@@ -36,3 +36,11 @@ Typescript React Snippets.
 | `uf`    | useForm |
 | `ur`    | useRef |
 | `us`    | useState |
+
+## Links
+
+- [azure][azure]
+- [publish api][publish]
+
+[azure]: https://dev.azure.com
+[publish]: https://code.visualstudio.com/api/working-with-extensions/publishing-extension
