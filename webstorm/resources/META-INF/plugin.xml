@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>com.bluewaitor.tsReact</id>
   <name>TSReact</name>
-  <version>1.3.0</version>
+  <version>1.4.0</version>
   <vendor email="bluewaitor@gmail.com" url="https://github.com/bluewaitor">bluewaitor</vendor>
 
   <description><![CDATA[
@@ -9,9 +9,9 @@
     ]]></description>
 
   <change-notes><![CDATA[
-      - fix: set applicable context to Typescript.
-      - add: `rnmodel`
-      - add: `uf` antd 4.0 useForm.
+      - change `cmd` return value
+      - delete `dma`、`dmar`、`mat`、`ud`
+      - update `cms`、`mar`、`model`、`man`、`rrc`、`rrcs`、`tomd`
     ]]>
   </change-notes>
 

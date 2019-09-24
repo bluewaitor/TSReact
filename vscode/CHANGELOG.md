@@ -2,6 +2,12 @@
 
 更改记录
 
+## [1.4.0]
+
+- 修改`cmd`的返回值
+- 删除`dma`、`dmar`、`mat`、`ud`
+- 优化`cms`、`mar`、`model`、`man`、`rrc`、`rrcs`、`tomd`
+
 ## [1.3.1]
 
 - 修改 `man`、`mat` 适应新版本 `@redux-model/*`
