@@ -1,0 +1,14 @@
+import scss:
+  prefix: 'icss'
+  tpl: |-
+    import styles from './${TM_FILENAME_BASE}.scss
+
+import scss module:
+  prefix: 'icssm'
+  tpl: |-
+    import styles from './${TM_FILENAME_BASE}.module.scss
+
+extra variable:
+  prefix: 'cv'
+  tpl: |-
+    const { $0 } = $1;

@@ -1,0 +1,16 @@
+create redux model:
+  prefix: 'model'
+  tpl: |-
+    import { Model } from '@redux-model/react';
+
+    type Data = {};
+
+    class ${TM_FILENAME_BASE} extends Model<Data> {
+      $0
+
+      protected initialState(): Data {
+        return {};
+      }
+    }
+
+    export const ${TM_FILENAME_BASE/^([_A-Z])/${1:/downcase}/} = new ${TM_FILENAME_BASE}();

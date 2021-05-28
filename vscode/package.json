@@ -8,7 +8,7 @@
     "url": "https://github.com/bluewaitor/TSReact.git"
   },
   "icon": "icon.jpeg",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "engines": {
     "vscode": "^1.36.0"
   },

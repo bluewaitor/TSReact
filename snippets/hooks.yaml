@@ -1,0 +1,34 @@
+useState:
+  prefix: 'us'
+  tpl: |-
+    const [$1, $2] = useState($0);
+
+useRef:
+  prefix: 'ur'
+  tpl: |-
+    const $1 = useRef<$2>($0);
+
+useForm:
+  prefix: 'uf'
+  tpl: |-
+    const [form] = Form.useForm();
+
+useEffect:
+  prefix: 'ue'
+  tpl: |-
+    useEffect(() => {
+      $0
+    }, []);
+
+useContext:
+  prefix: 'uctx'
+  tpl: |-
+    const { $0 } = useContext($1);
+
+useCallback:
+  prefix: 'ucb'
+  tpl: |-
+    const $1 = useCallback(() => {
+      $0
+    }, []);
+

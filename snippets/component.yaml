@@ -1,0 +1,15 @@
+function component:
+  prefix: 'fc'
+  tpl: |-
+    import { FC, memo } from 'react';
+
+    interface OwnProps {}
+
+    type Props = OwnProps;
+
+    const ${TM_FILENAME_BASE}: FC<Props> = (props) => {
+
+      return ();
+    };
+
+    export default memo(${TM_FILENAME_BASE});
