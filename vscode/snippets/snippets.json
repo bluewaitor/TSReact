@@ -1,349 +1,106 @@
 {
-  "mapDispatchToProps": {
-    "prefix": "cmd",
-    "body": [
-      "const mapDispatchToProps = () => ({",
-      "  $0",
-      "});"
-    ]
-  },
-  "mapStateToProps": {
-    "prefix": "cms",
-    "body": [
-      "const mapStateToProps = () => {",
-      "  return {",
-      "    $0",
-      "  };",
-      "};"
-    ]
-  },
-  "extract props": {
-    "prefix": "cp",
-    "body": [
-      "const { $0 } = this.props;"
-    ]
-  },
-  "extract state": {
-    "prefix": "cs",
-    "body": [
-      "const { $0 } = this.state;"
-    ]
-  },
-  "extract variable": {
-    "prefix": "cv",
-    "body": [
-      "const { $0 } = $1;"
-    ]
-  },
-  "create function component": {
+  "function component": {
+    "name": "function component",
     "prefix": "fc",
     "body": [
-      "import React, { FunctionComponent } from 'react';",
+      "import { FC, memo } from 'react';",
       "",
       "interface OwnProps {}",
       "",
       "type Props = OwnProps;",
       "",
-      "const ${TM_FILENAME_BASE}: FunctionComponent<Props> = (props) => {",
-      "  $0",
+      "const ${TM_FILENAME_BASE}: FC<Props> = (props) => {",
+      "",
       "  return ();",
       "};",
       "",
-      "export default ${TM_FILENAME_BASE};",
-      ""
+      "export default memo(${TM_FILENAME_BASE});"
     ]
   },
-  "create function component with react-redux": {
-    "prefix": "frc",
+  "useState": {
+    "name": "useState",
+    "prefix": "us",
     "body": [
-      "import React, { FunctionComponent } from 'react';",
-      "import { connect } from 'react-redux';",
-      "",
-      "interface OwnProps {}",
-      "",
-      "type Props = OwnProps & ReturnType<typeof mapStateToProps>;",
-      "",
-      "const ${TM_FILENAME_BASE}: FunctionComponent<Props> = (props) => {",
-      "  $0",
-      "  return ();",
-      "};",
-      "",
-      "const mapStateToProps = (state: RootState) => {",
-      "  return {",
-      "    $1",
-      "  };",
-      "};",
-      "",
-      "export default connect(mapStateToProps)(${TM_FILENAME_BASE});",
-      ""
-    ]
-  },
-  "import scss": {
-    "prefix": "icss",
-    "body": [
-      "import styles from './${TM_FILENAME_BASE}.scss';"
-    ]
-  },
-  "model action normal": {
-    "prefix": "man",
-    "body": [
-      "$1 = this.actionNormal((state, payload) => {",
-      "  $0",
-      "});"
-    ]
-  },
-  "model action request": {
-    "prefix": "mar",
-    "body": [
-      "$1 = this.actionRequest({",
-      "  action: () => {",
-      "    return this.${2:get}<$3>({",
-      "      uri: '$0',",
-      "    });",
-      "  },",
-      "  onSuccess: (state, action) => {",
-      "    return action.response;",
-      "  },",
-      "});"
-    ]
-  },
-  "create model": {
-    "prefix": "model",
-    "body": [
-      "type Data = {};",
-      "",
-      "class ${TM_FILENAME_BASE} extends ${1:Model}<Data> {",
-      "  $0",
-      "",
-      "  protected initReducer(): Data {",
-      "    return {};",
-      "  }",
-      "}",
-      "",
-      "export const ${TM_FILENAME_BASE/^([_A-Z])/${1:/downcase}/} = new ${TM_FILENAME_BASE}();",
-      ""
-    ]
-  },
-  "react pure component": {
-    "prefix": "rcc",
-    "body": [
-      "import React, { PureComponent } from 'react';",
-      "",
-      "interface OwnProps {}",
-      "",
-      "type Props = OwnProps;",
-      "",
-      "class ${TM_FILENAME_BASE} extends PureComponent<Props> {",
-      "  render() {",
-      "    return (",
-      "      $0",
-      "    );",
-      "  }",
-      "}",
-      "",
-      "export default ${TM_FILENAME_BASE};"
-    ]
-  },
-  "react pure component with state": {
-    "prefix": "rccs",
-    "body": [
-      "import React, { PureComponent } from 'react';",
-      "",
-      "interface OwnProps {}",
-      "",
-      "type Props = OwnProps;",
-      "",
-      "type State = Readonly<{",
-      "  $1",
-      "}>;",
-      "",
-      "class ${TM_FILENAME_BASE} extends PureComponent<Props, State> {",
-      "  readonly state: State = {",
-      "    $2",
-      "  };",
-      "",
-      "  render() {",
-      "    return (",
-      "      $0",
-      "    );",
-      "  }",
-      "}",
-      "",
-      "export default ${TM_FILENAME_BASE};"
-    ]
-  },
-  "create react native model": {
-    "prefix": "rnmodel",
-    "body": [
-      "import { Model } from '@redux-model/react-native';",
-      "",
-      "type Data = {};",
-      "",
-      "class ${TM_FILENAME_BASE} extends Model<Data> {",
-      "  $0",
-      "",
-      "  protected initReducer(): Data {",
-      "    return {};",
-      "  }",
-      "}",
-      "",
-      "export const ${TM_FILENAME_BASE/^([_A-Z])/${1:/downcase}/} = new ${TM_FILENAME_BASE}();",
-      ""
-    ]
-  },
-  "react pure component with react-redux": {
-    "prefix": "rrc",
-    "body": [
-      "import React, { PureComponent } from 'react';",
-      "import { connect } from 'react-redux';",
-      "",
-      "interface OwnProps {}",
-      "",
-      "type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;",
-      "",
-      "class ${TM_FILENAME_BASE} extends PureComponent<Props> {",
-      "  render() {",
-      "    return (",
-      "      $0",
-      "    );",
-      "  }",
-      "}",
-      "",
-      "const mapStateToProps = () => {",
-      "  return {};",
-      "};",
-      "",
-      "const mapDispatchToProps = () => ({});",
-      "",
-      "export default connect(mapStateToProps, mapDispatchToProps)(${TM_FILENAME_BASE});"
-    ]
-  },
-  "react pure component with react-redux and state": {
-    "prefix": "rrcs",
-    "body": [
-      "import React, { PureComponent } from 'react';",
-      "import { connect } from 'react-redux';",
-      "",
-      "interface OwnProps {}",
-      "",
-      "type Props = OwnProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;",
-      "",
-      "type State = Readonly<{}>;",
-      "",
-      "class ${TM_FILENAME_BASE} extends PureComponent<Props, State> {",
-      "  readonly state: State = {};",
-      "",
-      "  render() {",
-      "    return (",
-      "      $0",
-      "    );",
-      "  }",
-      "}",
-      "",
-      "const mapStateToProps = () => {",
-      "  return {};",
-      "};",
-      "",
-      "const mapDispatchToProps = () => ({});",
-      "",
-      "export default connect(mapStateToProps, mapDispatchToProps)(${TM_FILENAME_BASE});"
-    ]
-  },
-  "setState": {
-    "prefix": "ss",
-    "body": [
-      "this.setState({",
-      "  $0",
-      "});"
-    ]
-  },
-  "setState function": {
-    "prefix": "ssf",
-    "body": [
-      "this.setState((prevState) => {",
-      "  return { $0 }",
-      "});"
-    ]
-  },
-  "create taro model": {
-    "prefix": "taromodel",
-    "body": [
-      "import { Model } from '@redux-model/taro';",
-      "",
-      "type Data = {};",
-      "",
-      "class ${TM_FILENAME_BASE} extends Model<Data> {",
-      "  $0",
-      "",
-      "  protected initReducer(): Data {",
-      "    return {};",
-      "  }",
-      "}",
-      "",
-      "export const ${TM_FILENAME_BASE/^([_A-Z])/${1:/downcase}/} = new ${TM_FILENAME_BASE}();",
-      ""
-    ]
-  },
-  "typeof mapDispatchToProps": {
-    "prefix": "tomd",
-    "body": [
-      "ReturnType<typeof mapDispatchToProps>"
-    ]
-  },
-  "typeof mapStateToProps": {
-    "prefix": "toms",
-    "body": [
-      "ReturnType<typeof mapStateToProps>"
-    ]
-  },
-  "type State": {
-    "prefix": "tps",
-    "body": [
-      "type State = Readonly<{",
-      "  $0",
-      "}>;"
-    ]
-  },
-  "useCallback": {
-    "prefix": "ucb",
-    "body": [
-      "const $1 = useCallback(() => {",
-      "  $0",
-      "}, []);",
-      ""
-    ]
-  },
-  "useContext": {
-    "prefix": "uctx",
-    "body": [
-      "const { $0 } = useContext($1);"
-    ]
-  },
-  "useEffect": {
-    "prefix": "ue",
-    "body": [
-      "useEffect(() => {",
-      "  $0",
-      "}, []);",
-      ""
-    ]
-  },
-  "useForm": {
-    "prefix": "uf",
-    "body": [
-      "const [form] = Form.useForm();"
+      "const [$1, $2] = useState($0);"
     ]
   },
   "useRef": {
+    "name": "useRef",
     "prefix": "ur",
     "body": [
       "const $1 = useRef<$2>($0);"
     ]
   },
-  "useState": {
-    "prefix": "us",
+  "useForm": {
+    "name": "useForm",
+    "prefix": "uf",
     "body": [
-      "const [$1, $2] = useState($0);"
+      "const [form] = Form.useForm();"
+    ]
+  },
+  "useEffect": {
+    "name": "useEffect",
+    "prefix": "ue",
+    "body": [
+      "useEffect(() => {",
+      "  $0",
+      "}, []);"
+    ]
+  },
+  "useContext": {
+    "name": "useContext",
+    "prefix": "uctx",
+    "body": [
+      "const { $0 } = useContext($1);"
+    ]
+  },
+  "useCallback": {
+    "name": "useCallback",
+    "prefix": "ucb",
+    "body": [
+      "const $1 = useCallback(() => {",
+      "  $0",
+      "}, []);"
+    ]
+  },
+  "import scss": {
+    "name": "import scss",
+    "prefix": "icss",
+    "body": [
+      "import styles from './${TM_FILENAME_BASE}.scss"
+    ]
+  },
+  "import scss module": {
+    "name": "import scss module",
+    "prefix": "icssm",
+    "body": [
+      "import styles from './${TM_FILENAME_BASE}.module.scss"
+    ]
+  },
+  "extra variable": {
+    "name": "extra variable",
+    "prefix": "cv",
+    "body": [
+      "const { $0 } = $1;"
+    ]
+  },
+  "create redux model": {
+    "name": "create redux model",
+    "prefix": "model",
+    "body": [
+      "import { Model } from '@redux-model/react';",
+      "",
+      "type Data = {};",
+      "",
+      "class ${TM_FILENAME_BASE} extends Model<Data> {",
+      "  $0",
+      "",
+      "  protected initialState(): Data {",
+      "    return {};",
+      "  }",
+      "}",
+      "",
+      "export const ${TM_FILENAME_BASE/^([_A-Z])/${1:/downcase}/} = new ${TM_FILENAME_BASE}();"
     ]
   }
 }
