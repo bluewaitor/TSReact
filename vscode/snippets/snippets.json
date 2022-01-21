@@ -67,14 +67,14 @@
     "name": "import scss",
     "prefix": "icss",
     "body": [
-      "import styles from './${TM_FILENAME_BASE}.scss"
+      "import styles from './${TM_FILENAME_BASE}.scss'"
     ]
   },
   "import scss module": {
     "name": "import scss module",
     "prefix": "icssm",
     "body": [
-      "import styles from './${TM_FILENAME_BASE}.module.scss"
+      "import styles from './${TM_FILENAME_BASE}.module.scss'"
     ]
   },
   "extra variable": {

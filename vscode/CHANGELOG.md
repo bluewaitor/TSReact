@@ -2,6 +2,10 @@
 
 更改记录
 
+## [1.5.2]
+
+- 修复`icss`、`icss`引号没有闭合的问题
+
 ## [1.5.1]
 
 - 删除`cmd`、`cms`、`cp`、`cs`、`frc`、`man`、`mar`、`rcc`、`rccs`、`rnmodel`、`rrc`、`rrcs`、`ss`、`ssf`、`taromodel`、`tomd`、`toms`、`tps`
